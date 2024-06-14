@@ -59,8 +59,14 @@ In unsupervised learning, the CNN of the model is based on PDE's without
 labeled data (initial and boundary conditions for CFD applications). The
 loss is only derived from the residuals to base a solution on learned
 behaviors, eg. input-output pairs.
-$$\mathcal{L}_{\text{PDE}} = \frac{1}{M} \sum_{j=1}^{M} \left( u_t(x_j, t_j) + u(x_j, t_j) u_x(x_j, t_j) - \nu u_{xx}(x_j, t_j) \right)^2$$
-$$\mathcal{L} = \mathcal{L}_{\text{PDE}}$$
+$$
+\mathcal{L}_{\text{PDE}} = \frac{1}{M} \sum_{j=1}^{M} \left( u_t(x_j, t_j) + u(x_j, t_j) u_x(x_j, t_j) - \nu u_{xx}(x_j, t_j) \right)^2
+$$
+
+$$
+\mathcal{L} = \mathcal{L}_{\text{PDE}}
+$$
+
 
 ##  Standard supervised PINN
 
@@ -68,24 +74,23 @@ In supervised learning, the CNN of the model is based on labeled data,
 and when coupled with the residual function, the model will fit and form
 properly.
 
-$$\mathcal{L}_{\text{data}} = \frac{1}{N} \sum_{i=1}^{N} \left( u_{\text{pred}}(x_i, t_i) - u_{\text{data}}(x_i, t_i) \right)^2$$
+$$
+\mathcal{L}_{\text{data}} = \frac{1}{N} \sum_{i=1}^{N} \left( u_{\text{pred}}(x_i, t_i) - u_{\text{data}}(x_i, t_i) \right)^2
+$$
+
+
 K is thhe number of boundary condition points, which are in the
 beginning and specified. M is the number of collocation points specified
 for the PDE. N is the number of data points
 
-$$\mathcal{L} = \mathcal{L}_{\text{data}} + \mathcal{L}_{\text{PDE}}$$
+$$
+\mathcal{L} = \mathcal{L}_{\text{data}} + \mathcal{L}_{\text{PDE}}
+$$
 
 ## Supervised Extended PINN
 
 The loss function is a combination of the data loss (difference between
 predictions and labeled data) and the PDE residuals:
-$$\mathcal{L}_{\text{BC}} = \frac{1}{K} \sum_{k=1}^{K} \left( u_{\text{pred}}(x_{b_k}, t_{b_k}) - u_{b_k} \right)^2$$
-$$\mathcal{L} = \mathcal{L}_{\text{data}} + \mathcal{L}_{\text{PDE}} + \mathcal{L}_{\text{BC}}$$
-
-\( L_{\text{BC}} = \frac{1}{K} \sum_{k=1}^{K} \left( u_{\text{pred}}(x_{b_k}, t_{b_k}) - u_{b_k} \right)^2 \)
-
-\( L = L_{\text{data}} + L_{\text{PDE}} + L_{\text{BC}} \)
-
 $$
 L_{\text{BC}} = \frac{1}{K} \sum_{k=1}^{K} \left( u_{\text{pred}}(x_{b_k}, t_{b_k}) - u_{b_k} \right)^2
 $$

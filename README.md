@@ -7,15 +7,15 @@ application of PINNs to the 1D Burgers' PDE to further explore the topic
 of neural networks in the context of physics-informed predictions.
 
 Direct solving of the PDE is compared and given to the resolution
-methods of lines proposed by Biazar et al. [1]. The accuracy
+methods of lines proposed by Biazar et al [1]. The accuracy
 and efficiency are directly compared to the feasibility and prediction
 of the PINN [2]. The direct solution is compared and
 estimated from the residuals of the epochs of the machine learning
 process, and the data is feed-forwarded from the PINN to scalable solutions. After validation and verification of the network at varying grid resolutions and time resolutions, the final prediction for the 1D Burgers' equation is solved and compared to the exact solution.
 
-![Equation](https://latex.codecogs.com/png.latex?\frac{\partial%20u}{\partial%20t}%20+%20u\frac{\partial%20u}{\partial%20x}%20=%20\nu%20\frac{\partial^20u}{\partial%20x^2})
+![Equation](https://latex.codecogs.com/png.latex?\frac{\partial%20u}{\partial%20t}%20+%20u\frac{\partial%20u}{\partial%20x}%20=%20\nu%20\frac{\partial^2%20u}{\partial%20x^2})
 
-Derived by Harry Bateman [3], the solution for \(f^{+}=2, f^{-}=0, c=1\) results to the following analytical solution to the PDE.
+Derived by Harry Bateman [3], the solution for $\(f^{+}=2, f^{-}=0, c=1\)$ results to the following analytical solution to the PDE.
 
 ![Equation](https://latex.codecogs.com/png.latex?u(x,t)%20=%20\frac{2}{1+e^{\frac{x-t}{\nu}}})
 
@@ -123,9 +123,7 @@ simulation.
 
 
 
-
-
-
 ![image](https://github.com/limebat/PINN-1DBurgerEqn/assets/86577233/6259b686-06c6-479f-b776-8f72fe80ab70)
 ![image](https://github.com/limebat/PINN-1DBurgerEqn/assets/86577233/a7ee2fd3-f1c9-44df-8e42-fae33e6ecb21)
-![image](https://github.com/limebat/PINN-1DBurgerEqn/assets/86577233/d417b2b5-eb67-49c7-bf29-a48d45e3a49d)
+![image](https://github.com/limebat/PINN-1DBurgerEqn/assets/86577233/27e2237a-97cd-4ba8-bac8-008137a4fcf7)
+

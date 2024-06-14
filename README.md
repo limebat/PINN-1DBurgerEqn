@@ -1,4 +1,4 @@
-# Global Objective {#global-objective .unnumbered}
+# Global Objective
 
 The prediction and simulation of fluid partial differential equations
 (PDEs) are inherently challenging due to the nonlinear nature of the
@@ -7,18 +7,15 @@ application of PINNs to the 1D Burgers' PDE to further explore the topic
 of neural networks in the context of physics-informed predictions.
 
 Direct solving of the PDE is compared and given to the resolution
-methods of lines proposed by Biazar et al. [@BiazarBERGER]. The accuracy
+methods of lines proposed by Biazar et al. [1]. The accuracy
 and efficiency are directly compared to the feasibility and prediction
-of the PINN [@MENG2023116172]. The direct solution is compared and
+of the PINN [2]. The direct solution is compared and
 estimated from the residuals of the epochs of the machine learning
-process, and the data is feed-forwarded from the PDE residuals to
-epochs. The final prediction for the 1D Burgers' equation is solved and
-compared to the exact solution.
+process, and the data is feed-forwarded from the PINN to scalable solutions. After validation and verification of the network at varying grid resolutions and time resolutions, the final prediction for the 1D Burgers' equation is solved and compared to the exact solution.
 
 ![Equation](https://latex.codecogs.com/png.latex?\frac{\partial%20u}{\partial%20t}%20+%20u\frac{\partial%20u}{\partial%20x}%20=%20\nu%20\frac{\partial^20u}{\partial%20x^2})
 
-Derived by Harry Bateman [@harryBateman1915], the solution for $f^{+}=2, f^{-}=0, c=1$ results to the following analytical
-solution to the PDE.
+Derived by Harry Bateman [3], the solution for \(f^{+}=2, f^{-}=0, c=1\) results to the following analytical solution to the PDE.
 
 ![Equation](https://latex.codecogs.com/png.latex?u(x,t)%20=%20\frac{2}{1+e^{\frac{x-t}{\nu}}})
 
@@ -78,7 +75,7 @@ predictions and labeled data) and the PDE residuals:
 # Validation and Verification
 
 Comparison with Analytical Solutions - Available from Harry Bateman
-[@harryBateman1915].
+[3].
 
 Sampling and Convergence Analysis - Collocation is important to capture
 regions of high complexity such as regions where significant changes or
@@ -117,3 +114,9 @@ by optimizing the network architecture and training parameters.
 **6. Visualization and Comparison:** Visualize the flowfield solution,
 comparing it with analytical solutions to differences within numerical
 simulation.
+
+# References
+
+1. J. Biazar, Z. Ayati, and S. Shahbazi. "Solution of the Burgers Equation by the Method of Lines". In: American Journal of Numerical Analysis 2 (Jan. 2014), pp. 1-3.
+2. Z. Meng, Q. Qian, M. Xu, B. Yu, A. R. Yıldız, and S. Mirjalili. "PINN-FORM: A new physics-informed neural network for reliability analysis with partial differential equation". In: Computer Methods in Applied Mechanics and Engineering 414 (2023), p. 116172. ISSN: 0045-7825.
+3. H. Bateman. "Some Recent Researches on the Motion of Fluids". In: Monthly Weather Review 43.4 (Jan. 1915), p. 163.

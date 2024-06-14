@@ -127,3 +127,7 @@ simulation.
 ![image](https://github.com/limebat/PINN-1DBurgerEqn/assets/86577233/a7ee2fd3-f1c9-44df-8e42-fae33e6ecb21)
 ![image](https://github.com/limebat/PINN-1DBurgerEqn/assets/86577233/27e2237a-97cd-4ba8-bac8-008137a4fcf7)
 
+
+
+![image](https://github.com/limebat/PINN-1DBurgerEqn/assets/86577233/a386defa-cacb-4e1d-8fbf-47aa1f5419e4)
+

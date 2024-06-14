@@ -15,17 +15,12 @@ process, and the data is feed-forwarded from the PDE residuals to
 epochs. The final prediction for the 1D Burgers' equation is solved and
 compared to the exact solution.
 
-$\begin{gathered}
-    {\displaystyle {\frac {\partial u}{\partial t}}+u{\frac {\partial u}{\partial x}}=\nu {\frac {\partial ^{2}u}{\partial x^{2}}}.}
-\end{gathered}$
+![Equation](https://latex.codecogs.com/png.latex?\frac{\partial%20u}{\partial%20t}%20+%20u\frac{\partial%20u}{\partial%20x}%20=%20\nu%20\frac{\partial^20u}{\partial%20x^2})
 
-$$\begin{gathered}
-    {\displaystyle {\frac {\partial u}{\partial t}}+u{\frac {\partial u}{\partial x}}=\nu {\frac {\partial ^{2}u}{\partial x^{2}}}.}
-\end{gathered}$$ Derived by Harry Bateman [@harryBateman1915], the
-solution for $f^{+}=2, f^{-}=0, c=1$ results to the following analytical
+Derived by Harry Bateman [@harryBateman1915], the solution for $f^{+}=2, f^{-}=0, c=1$ results to the following analytical
 solution to the PDE.
 
-$${\displaystyle u(x,t)={\frac {2}{1+e^{\frac {x-t}{\nu }}}}}$$
+![Equation](https://latex.codecogs.com/png.latex?u(x,t)%20=%20\frac{2}{1+e^{\frac{x-t}{\nu}}})
 
 # Pre-processing strategem
 
@@ -53,42 +48,35 @@ In unsupervised learning, the CNN of the model is based on PDE's without
 labeled data (initial and boundary conditions for CFD applications). The
 loss is only derived from the residuals to base a solution on learned
 behaviors, eg. input-output pairs.
-\[mathcal{L}_{\text{PDE}} = \frac{1}{M} \sum_{j=1}^{M} \left( u_t(x_j, t_j) + u(x_j, t_j) u_x(x_j, t_j) - \nu u_{xx}(x_j, t_j) \right)^2$$
-$$\mathcal{L} = \mathcal{L}_{\text{PDE}}]\
 
-##  Standard supervised PINN
+![Equation](https://latex.codecogs.com/png.latex?\mathcal{L}_{\text{PDE}}%20=%20\frac{1}{M}%20\sum_{j=1}^{M}%20\left(%20u_t(x_j,%20t_j)%20+%20u(x_j,%20t_j)%20u_x(x_j,%20t_j)%20-%20\nu%20u_{xx}(x_j,%20t_j)%20\right)^2)
+
+![Equation](https://latex.codecogs.com/png.latex?\mathcal{L}%20=%20\mathcal{L}_{\text{PDE}})
+
+## Standard supervised PINN
 
 In supervised learning, the CNN of the model is based on labeled data,
 and when coupled with the residual function, the model will fit and form
 properly.
 
-$$\mathcal{L}_{\text{data}} = \frac{1}{N} \sum_{i=1}^{N} \left( u_{\text{pred}}(x_i, t_i) - u_{\text{data}}(x_i, t_i) \right)^2$$
-K is thhe number of boundary condition points, which are in the
+![Equation](https://latex.codecogs.com/png.latex?\mathcal{L}_{\text{data}}%20=%20\frac{1}{N}%20\sum_{i=1}^{N}%20\left(%20u_{\text{pred}}(x_i,%20t_i)%20-%20u_{\text{data}}(x_i,%20t_i)%20\right)^2)
+K is the number of boundary condition points, which are in the
 beginning and specified. M is the number of collocation points specified
 for the PDE. N is the number of data points
 
-$$\mathcal{L} = \mathcal{L}_{\text{data}} + \mathcal{L}_{\text{PDE}}$$
+![Equation](https://latex.codecogs.com/png.latex?\mathcal{L}%20=%20\mathcal{L}_{\text{data}}%20+%20\mathcal{L}_{\text{PDE}})
 
 ## Supervised Extended PINN
 
 The loss function is a combination of the data loss (difference between
 predictions and labeled data) and the PDE residuals:
-$$\mathcal{L}_{\text{BC}} = \frac{1}{K} \sum_{k=1}^{K} \left( u_{\text{pred}}(x_{b_k}, t_{b_k}) - u_{b_k} \right)^2$$
-$$\mathcal{L} = \mathcal{L}_{\text{data}} + \mathcal{L}_{\text{PDE}} + \mathcal{L}_{\text{BC}}$$
 
-$$
-\mathcal{L}_{\text{BC}} = \frac{1}{K} \sum_{k=1}^{K} \left( u_{\text{pred}}(x_{b_k}, t_{b_k}) - u_{b_k} \right)^2
-$$
+![Equation](https://latex.codecogs.com/png.latex?\mathcal{L}_{\text{BC}}%20=%20\frac{1}{K}%20\sum_{k=1}^{K}%20\left(%20u_{\text{pred}}(x_{b_k},%20t_{b_k})%20-%20u_{b_k}%20\right)^2)
 
-$$
-\mathcal{L} = \mathcal{L}_{\text{data}} + \mathcal{L}_{\text{PDE}} + \mathcal{L}_{\text{BC}}
-$$
-
-
+![Equation](https://latex.codecogs.com/png.latex?\mathcal{L}%20=%20\mathcal{L}_{\text{data}}%20+%20\mathcal{L}_{\text{PDE}}%20+%20\mathcal{L}_{\text{BC}})
 
 # Validation and Verification
 
-\
 Comparison with Analytical Solutions - Available from Harry Bateman
 [@harryBateman1915].
 
@@ -110,26 +98,22 @@ conditions, balancing accuracy and computation.
 # Goals
 
 **1. Analysis of Burgers Equation Using PINN:** Analyze and reconstruct
-the flow field of the Burgers equation using both supervised and
-unsupervised PINNs.
+the flow field of the Burgers equation using standard supervised, supervised extended, and
+standard unsupervised PINNs.
 
-**2. Accurate Solution Capture:**Ensure the PINN model accurately
+**2. Accurate Solution Capture:** Ensure the PINN model accurately
 replicates the analytical solutions of the Burgers equation
 
-**3. Effective Sampling:** Use smart sampling techniques, such as
-adaptive and weighted sampling, to focus on complex regions with
-significant changes
-
-**4. Smooth Convergence:** Achieve smooth and efficient training of the
+**3. Smooth Convergence:** Achieve smooth and efficient training of the
 model, indicating effective learning and proper convergence to the
 solution.
 
-**5. Robustness to Variations:** Ensure the model remains accurate even
+**4. Robustness to Variations:** Ensure the model remains accurate even
 with uncertainties in initial and boundary conditions
 
-**6. Optimized Training:** Balance accuracy and computational efficiency
+**5. Optimized Training:** Balance accuracy and computational efficiency
 by optimizing the network architecture and training parameters.
 
-**7. Visualization and Comparison:**Visualize the flowfield solution,
+**6. Visualization and Comparison:** Visualize the flowfield solution,
 comparing it with analytical solutions to differences within numerical
 simulation.

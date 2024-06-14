@@ -15,12 +15,7 @@ process, and the data is feed-forwarded from the PDE residuals to
 epochs. The final prediction for the 1D Burgers' equation is solved and
 compared to the exact solution.
 
-<!--
 ![Equation](https://latex.codecogs.com/png.latex?\frac{\partial%20u}{\partial%20t}%20+%20u\frac{\partial%20u}{\partial%20x}%20=%20\nu%20\frac{\partial^20u}{\partial%20x^2})
--->
-
-![image](https://github.com/limebat/PINN-1DBurgerEqn/assets/86577233/77ed9b05-00e1-4027-b2c2-015d9deb12e1)
-
 
 Derived by Harry Bateman [@harryBateman1915], the solution for $f^{+}=2, f^{-}=0, c=1$ results to the following analytical
 solution to the PDE.

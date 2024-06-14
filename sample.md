@@ -86,6 +86,15 @@ $$\mathcal{L} = \mathcal{L}_{\text{data}} + \mathcal{L}_{\text{PDE}} + \mathcal{
 
 \( L = L_{\text{data}} + L_{\text{PDE}} + L_{\text{BC}} \)
 
+$$
+L_{\text{BC}} = \frac{1}{K} \sum_{k=1}^{K} \left( u_{\text{pred}}(x_{b_k}, t_{b_k}) - u_{b_k} \right)^2
+$$
+
+$$
+L = L_{\text{data}} + L_{\text{PDE}} + L_{\text{BC}}
+$$
+
+
 
 
 # Validation and Verification

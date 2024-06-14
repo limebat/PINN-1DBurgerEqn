@@ -120,3 +120,12 @@ simulation.
 1. J. Biazar, Z. Ayati, and S. Shahbazi. "Solution of the Burgers Equation by the Method of Lines". In: American Journal of Numerical Analysis 2 (Jan. 2014), pp. 1-3.
 2. Z. Meng, Q. Qian, M. Xu, B. Yu, A. R. Yıldız, and S. Mirjalili. "PINN-FORM: A new physics-informed neural network for reliability analysis with partial differential equation". In: Computer Methods in Applied Mechanics and Engineering 414 (2023), p. 116172. ISSN: 0045-7825.
 3. H. Bateman. "Some Recent Researches on the Motion of Fluids". In: Monthly Weather Review 43.4 (Jan. 1915), p. 163.
+
+
+
+
+
+
+![image](https://github.com/limebat/PINN-1DBurgerEqn/assets/86577233/6259b686-06c6-479f-b776-8f72fe80ab70)
+![image](https://github.com/limebat/PINN-1DBurgerEqn/assets/86577233/a7ee2fd3-f1c9-44df-8e42-fae33e6ecb21)
+![image](https://github.com/limebat/PINN-1DBurgerEqn/assets/86577233/d417b2b5-eb67-49c7-bf29-a48d45e3a49d)

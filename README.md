@@ -44,7 +44,8 @@ bias grids.
 In unsupervised learning, the CNN of the model is based on PDE's without
 labeled data (initial and boundary conditions for CFD applications). The
 loss is only derived from the residuals to base a solution on learned
-behaviors, eg. input-output pairs.
+behaviors, eg. input-output pairs. M is the number of collocation points specified
+for the PDE. 
 
 ![Equation](https://latex.codecogs.com/png.latex?\mathcal{L}_{\text{PDE}}%20=%20\frac{1}{M}%20\sum_{j=1}^{M}%20\left(%20u_t(x_j,%20t_j)%20+%20u(x_j,%20t_j)%20u_x(x_j,%20t_j)%20-%20\nu%20u_{xx}(x_j,%20t_j)%20\right)^2)
 
@@ -54,19 +55,17 @@ behaviors, eg. input-output pairs.
 
 In supervised learning, the CNN of the model is based on labeled data,
 and when coupled with the residual function, the model will fit and form
-properly.
+properly. N is the number of data points.
 
 ![Equation](https://latex.codecogs.com/png.latex?\mathcal{L}_{\text{data}}%20=%20\frac{1}{N}%20\sum_{i=1}^{N}%20\left(%20u_{\text{pred}}(x_i,%20t_i)%20-%20u_{\text{data}}(x_i,%20t_i)%20\right)^2)
-K is the number of boundary condition points, which are in the
-beginning and specified. M is the number of collocation points specified
-for the PDE. N is the number of data points
+
 
 ![Equation](https://latex.codecogs.com/png.latex?\mathcal{L}%20=%20\mathcal{L}_{\text{data}}%20+%20\mathcal{L}_{\text{PDE}})
 
 ## Supervised Extended PINN
 
 The loss function is a combination of the data loss (difference between
-predictions and labeled data) and the PDE residuals:
+predictions and labeled data) and the PDE residuals. K is the number of boundary condition points, which are in the beginning and specified:
 
 ![Equation](https://latex.codecogs.com/png.latex?\mathcal{L}_{\text{BC}}%20=%20\frac{1}{K}%20\sum_{k=1}^{K}%20\left(%20u_{\text{pred}}(x_{b_k},%20t_{b_k})%20-%20u_{b_k}%20\right)^2)
 

@@ -2,6 +2,7 @@ import torch
 import numpy as np
 import matplotlib.pyplot as plt
 import torch.nn as nn
+import time
 
 class PINN(nn.Module):
     def __init__(self, NeuronCount):
@@ -34,7 +35,7 @@ def residual(model, x, v):
     f_plus = 2 
     f_minus = 0 
     c = (f_plus + f_minus) / 2.0
-    residual = u_pred - c + (f_plus - f_minus) / 2.0 * torch.tanh((f_plus - f_minus) / (4.0 * v) * (spatial_tensor - c*t_tensor))
+    residual = u_pred - c + (f_plus - f_minus) / 2.0 * torch.tanh((f_plus - f_minus) / (4.0 * v) * (spatial_tensor))
 
     return residual
     
@@ -54,8 +55,8 @@ def residual_loss(model, x_res_tensor, v):
     loss_residual = torch.mean(residual_values**2)
     return loss_residual
 
-def PDE_loss(model, v):
-    x_spatial = np.linspace(0, 1, 100).reshape((-1, 1))
+def PDE_loss(model, N_analytical, v):
+    x_spatial = np.linspace(0, 1, N_analytical).reshape((-1, 1)) # x_res_tensor[:, 0] # np.linspace(0, 1, 1).reshape((-1, 1))
     x_shape = np.shape(x_spatial)
     t_analytical = np.zeros(x_shape)
     u_analytical = torch.tensor(analytical_solution(x_spatial.flatten(), 0, v), dtype=torch.float32)
@@ -66,8 +67,10 @@ def PDE_loss(model, v):
     
     return loss_PDE
 
-def loss(model, x_ic, x_res, epoch_max, v):
-    optimizer = torch.optim.Adam(model.parameters(), lr=1e-2)
+def loss(model, x_ic, x_res, N_analytical, epoch_max, v):
+    start_time = time.time()
+    
+    optimizer = torch.optim.Adam(model.parameters(), lr=1e-1)
     for epoch in range(epoch_max):
         optimizer.zero_grad()
         x_ic_tensor = torch.tensor(x_ic, dtype=torch.float32, requires_grad=True)
@@ -75,17 +78,22 @@ def loss(model, x_ic, x_res, epoch_max, v):
         
         loss_ic = IC_loss(model, x_ic_tensor)
         loss_residual = residual_loss(model, x_res_tensor, v)
-        loss_PDE = PDE_loss(model, v)
+        loss_PDE = PDE_loss(model, N_analytical, v)
         loss_tot = loss_ic + loss_residual + loss_PDE        
         loss_tot.backward()
         optimizer.step()
         
         if epoch % 1000 == 0:
             print(f"Epoch {epoch}, Loss IC: {loss_ic.item()}, Loss Residual: {loss_residual.item()}, Loss Analytical: {loss_PDE.item()}")
+    end_time = time.time()
+    
+    time_tot = end_time - start_time
+    
+    print(f"Total time is now: {time_tot} seconds")
 
     return model
 
-def plot(model):
+def plot(model, N_res, N_analytical):
     x = np.linspace(0, 1, 100).reshape((-1, 1))
     t = np.zeros_like(x)
     xt = np.hstack((x, t))
@@ -97,19 +105,19 @@ def plot(model):
     plt.plot(x, u_analytical, label='Analytical Solution', color='red', linestyle='--')
     plt.xlabel('x [m]')
     plt.ylabel('U [m/s]')
-    plt.title('PINN Prediction vs Analytical Solution of U(x) at t=0')
+    plt.title(f'PINN Prediction vs Analytical Solution of U(x) at t=0, N={N_res}, M={N_analytical}')
     plt.grid(True)
     plt.legend()
     plt.show()
     
 
-NeuronCount = [2, 5, 5, 5, 1]
-N_ic, N_res = 2, 500
-epoch_max = 4000
+NeuronCount = [2, 5, 1]
+N_ic, N_res, N_analytical = 2, 3, 3
+epoch_max = 2000
 v = 0.1
 model = PINN(NeuronCount)
 x_ic, x_res = data_generate(N_res)
 
-model = loss(model, x_ic, x_res, epoch_max, v)
+model = loss(model, x_ic, x_res, N_analytical, epoch_max, v)
 
-plot(model)
+plot(model, N_res, N_analytical)

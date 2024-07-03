@@ -123,4 +123,6 @@ In this section, the results of the Physics-Informed Neural Network (PINN) appro
 
 In this setup, the number of sample or residual points \( N \) and analytical points \( M \) are both set to 3. The training time is approximately 2.82 seconds, which serves as the baseline for comparison with other configurations.
 
+<embed src="PINN-1DBurgerEqn/document.pdf" type="application/pdf" width="100%" height="600px" />
+
 #### Effect of variation of N and M points extended configuration

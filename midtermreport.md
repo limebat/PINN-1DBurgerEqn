@@ -18,6 +18,7 @@ prediction of the PINN [3]. The direct solution is compared and estimated from t
 the epochs of the machine learning process, and the data is feed-forwarded from the PDE residuals
 to epochs. The final prediction for the 1D Burgers’ equation is solved and compared to the exact
 solution.
+
 $`
 \frac{\partial u}{\partial t} + u\frac{\partial u}{\partial x} = \nu \frac{\partial^2 u}{\partial x^2}.
 `$

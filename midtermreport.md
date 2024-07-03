@@ -212,10 +212,7 @@ The Adam optimizer is used to train the model. This optimizer adjusts the learni
 In this section, the results of the Physics-Informed Neural Network (PINN) approach to solve the 1-D Burgers' equation are presented. The model's predictions are compared with the analytical solutions provided by Harry Bateman. The discussion covers the performance of the model under various combinations of residual points (N) and analytical points (M), varying epochs, and different hidden layer configurations.
 
 ### N and M points variance in Extended Supervised Learning Model
-Learning rate: 0.1
-Defined at a 1 hidden layer, 5 neurons
-nu at 0.1
-Epoch at 1000
+All cases are run at the following parameters, unless otherwise specified in the changes per subsection. A learning rate = 0.1, 1 hidden layer, and 5 neurons are set. The points of M = 3, N = 3, K = 2 are defined. A viscosity of $`\nu = 0.1`$ is set. An epoch count of 1000 is used.
 
 #### Baseline N=3, M=3
 In this setup, the number of sample or residual points N and analytical points M are both set to 3. The training time is approximately 2.82 seconds, which serves as the baseline for comparison with other configurations.

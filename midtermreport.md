@@ -80,7 +80,7 @@ $$
 u(x,t) = \frac{2}{1 + e^{\frac{x-t}{\nu}}}
 $$
 
-And the residual dataset from the PDE is generated via the function below for residual losses; this function is equivalent to the analytical solution given \( f^+ = 2 \), \( f^- = 0 \), and \( c = 1 \).
+And the residual dataset from the PDE is generated via the function below for residual losses; this function is equivalent to the analytical solution given ($f^+ = 2$), ($f^- = 0$), and ($c = 1$) .
 
 $$
 u(x,t) = c - \frac{f^{+} - f^{-}}{2}\tanh\left[\frac{f^{+} - f^{-}}{4\nu}(x - ct)\right].

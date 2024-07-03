@@ -22,11 +22,11 @@ $$
 \frac{\partial u}{\partial t} + u\frac{\partial u}{\partial x} = \nu \frac{\partial^2 u}{\partial x^2}.
 $$
 
-Derived by Harry Bateman [1], the solution for \( f^{+} = 2, f^{-} = 0, c = 1 \) results in the following analytical solution to the PDE:
+Derived by Harry Bateman [1], the solution for $` f^{+} = 2, f^{-} = 0, c = 1 `$ results in the following analytical solution to the PDE:
 
-$$
+$$`
 u(x,t) = \frac{2}{1 + e^{\frac{x-t}{\nu}}}
-$$
+`$$
 
 ## 1 Problem Definition and Motivation
 

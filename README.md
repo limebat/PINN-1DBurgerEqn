@@ -15,7 +15,7 @@ process, and the data is feed-forwarded from the PINN to scalable solutions. Aft
 
 ![Equation](https://latex.codecogs.com/png.latex?\frac{\partial%20u}{\partial%20t}%20+%20u\frac{\partial%20u}{\partial%20x}%20=%20\nu%20\frac{\partial^2%20u}{\partial%20x^2})
 
-Derived by Harry Bateman [3], the solution for $\(f^{+}=2, f^{-}=0, c=1\)$ results to the following analytical solution to the PDE.
+Derived by Harry Bateman [3], the solution for $`f^{+}=2, f^{-}=0, c=1`$ results to the following analytical solution to the PDE.
 
 ![Equation](https://latex.codecogs.com/png.latex?u(x,t)%20=%20\frac{2}{1+e^{\frac{x-t}{\nu}}})
 

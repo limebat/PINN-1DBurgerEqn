@@ -18,41 +18,16 @@ prediction of the PINN [3]. The direct solution is compared and estimated from t
 the epochs of the machine learning process, and the data is feed-forwarded from the PDE residuals
 to epochs. The final prediction for the 1D Burgers’ equation is solved and compared to the exact
 solution.
+$$
+\frac{\partial u}{\partial t} + u\frac{\partial u}{\partial x} = \nu \frac{\partial^2 u}{\partial x^2}.
+$$
 
-```
-∂u
-∂t
-```
-```
-+u
-```
-```
-∂u
-∂x
-```
-```
-=ν
-```
-```
-∂^2 u
-∂x^2
-```
-#### . (1)
+Derived by Harry Bateman [1], the solution for \( f^{+} = 2, f^{-} = 0, c = 1 \) results in the following analytical solution to the PDE:
 
-Derived by Harry Bateman [1], the solution forf+= 2,f−= 0,c= 1 results to the following
-analytical solution to the PDE.
+$$
+u(x,t) = \frac{2}{1 + e^{\frac{x-t}{\nu}}}
+$$
 
-```
-u(x,t) =
-```
-#### 2
-
-```
-1 +e
-```
-```
-x−νt
-```
 ## 1 Problem Definition and Motivation
 
 Solving systems of turbulent flow is a persistent and challenging issue in the field of fluid dynamics.
@@ -78,109 +53,39 @@ We use a Supervised Extended Physics-Informed Neural Network to solve the Burger
 
 ### 2.1 Data Pre-processing
 
-The data is simplified from the full Burger’s equation under steady propagating wave solutions
-[1].
-∂u
-∂t
+The data is simplified from the full Burger's equation under steady propagating wave solutions [1].
 
-```
-+u
-```
-```
-∂u
-∂x
-```
-```
-=ν
-```
-```
-∂^2 u
-∂x^2
-```
-#### .
+$$
+\frac{\partial u}{\partial t} + u\frac{\partial u}{\partial x} = \nu \frac{\partial^2 u}{\partial x^2}.
+$$
 
-Which simplifies to the below expression.
+Which simplifies to the below expression:
 
-```
-u(x,t) =c−
-```
-```
-f+−f−
-2
-```
-```
-tanh
-```
-#### 
+$$
+u(x,t) = c - \frac{f^{+} - f^{-}}{2}\tanh\left[\frac{f^{+} - f^{-}}{4\nu}(x - ct)\right].
+$$
 
-```
-f+−f−
-4 ν
-```
-```
-(x−ct)
-```
-#### 
+For the analytical solution comparison with the extended supervised model, additional parameters of \( f^+ = 2 \), \( f^- = 0 \), and \( c = 1 \) are used to compare with the analytical solution below; the simplification with these given parameters is in accordance with Bateman's [harryBateman1915] solutions simplifications.
 
-#### .
+$$
+u(x,t) = \frac{2}{1 + e^{\frac{x-t}{\nu}}}
+$$
 
-For the analytical solution comparison with the extended supervised model, additional param-
-eters off+= 2,f−= 0, andc= 1 are used to compare with the analytical solution below; the
-simplification with these given parameters is in accordance with Bateman’s [1] solutions simplifi-
-cations.
-
-```
-u(x,t) =
-```
-#### 2
-
-```
-1 +e
-x−νt
-```
 ### 2.2 Dataset Generation
 
-The analytical training dataset included within the PDE generation of Berger’s Equation via the
-analytical function below.
+The analytical training dataset included within the PDE generation of Berger's Equation via the analytical function below.
 
-```
-u(x,t) =
-```
-#### 2
+$$
+u(x,t) = \frac{2}{1 + e^{\frac{x-t}{\nu}}}
+$$
 
-```
-1 +e
-```
-x−t
-ν
-And the residual dataset from the PDE is generated via the function below for residual losses;
-this function is equivalent to the analytical solution givenf+= 2,f−= 0, andc= 1.
+And the residual dataset from the PDE is generated via the function below for residual losses; this function is equivalent to the analytical solution given \( f^+ = 2 \), \( f^- = 0 \), and \( c = 1 \).
 
-```
-u(x,t) =c−
-```
-```
-f+−f−
-2
-```
-```
-tanh
-```
-#### 
+$$
+u(x,t) = c - \frac{f^{+} - f^{-}}{2}\tanh\left[\frac{f^{+} - f^{-}}{4\nu}(x - ct)\right].
+$$
 
-```
-f+−f−
-4 ν
-```
-```
-(x−ct)
-```
-#### 
-
-#### .
-
-The grid is uniformly sampled for MSE PDE analytical solution comparisons (N points), and
-the grid is randomly sampled for residual losses (M points).
+The grid is uniformly sampled for MSE PDE analytical solution comparisons (N points), and the grid is randomly sampled for residual losses (M points).
 
 
 2.2.1 Training and Validation Data
@@ -210,56 +115,25 @@ U(x=1,t=0)=0 are given by the Bateman solutions for the supervised extended lear
 The supervised extended PINN model uses a loss function that is a combination of the data loss
 (difference between predictions and labeled data) and the PDE residuals:
 
-#### LPDE=
+$$
+L_{\text{PDE}} = \frac{1}{M} \sum_{j=1}^{M} \left( u_t(x_j, t_j) + u(x_j, t_j) u_x(x_j, t_j) - \nu u_{xx}(x_j, t_j) \right)^2
+$$
 
-#### 1
+$$
+L_{\text{data}} = \frac{1}{N} \sum_{i=1}^{N} \left( u_{\text{pred}}(x_i, t_i) - u_{\text{data}}(x_i, t_i) \right)^2
+$$
 
-#### M
+$$
+L_{\text{BC}} = \frac{1}{K} \sum_{k=1}^{K} \left( u_{\text{pred}}(x_{b_k}, t_{b_k}) - u_{b_k} \right)^2
+$$
 
-#### XM
-
-```
-j=
-```
-```
-(ut(xj,tj) +u(xj,tj)ux(xj,tj)−νuxx(xj,tj))^2
-```
-```
-Ldata=
-```
-#### 1
-
-#### N
-
-#### XN
-
-```
-i=
-```
-```
-(upred(xi,ti)−udata(xi,ti))^2
-```
-#### LBC=
-
-#### 1
-
-#### K
-
-#### XK
-
-```
-k=
-```
-```
-(upred(xbk,tbk)−ubk)^2
-```
 K is the number of boundary condition points. M is the number of collocation points specified for
 the PDE (residual losses), which are randomly selected within the grid. N is the number of grid
 points uniformly sampled within the grid.
 
-```
-L=Ldata+LPDE+LBC
-```
+$$
+L = L_{\text{data}} + L_{\text{PDE}} + L_{\text{BC}}
+$$
 
 2.3.1 Neural Network Architecture
 
@@ -318,34 +192,53 @@ from 3 to 5 notably improves the model’s accuracy, with only a slight variatio
 from 3 to 5. The improvement inM from 3 to 5 results in the R-squared value increasing from
 0.92 to 0.95. The R-squared value is calculated from the difference between the predicted and
 analytical solution.
+Here's your content converted to GitHub Markdown:
 
-#### R^2 = 1−
+### Neural Network Architecture
+The architecture consists of three layers:
 
-```
-Pn
-i=1(yi,actual−ˆyi,predicted)
-```
-```
-2
-Pn
-i=1(yi,actual−y ̄i,actual)
-2
-```
-Conversely, increasing the number of residual pointsNfrom 3 to 5 does not have as substantial
-an impact on accuracy.
-Therefore, it is found that the most influential parameter is the number of analytical pointsM.
-This observation is logical because using more analytical points in the PDE loss term allows the
-model to learn more accurately and effectively bridge the gap between predicted and actual data.
-Residual pointsN play a critical role in enforcing PDE constraints across the domain, ensuring
-that the model’s predictions adhere closely to the underlying physical laws. While these points
-maintain solution consistency, they do not directly assess the accuracy of the solution against
-known data points.
-On the other hand, analytical pointsM directly compare the model’s predictions to known,
-accurate solutions at specific locations, providing strong feedback for adjusting the model. This
-direct comparison is crucial for improving accuracy, especially when the model can use this infor-
-mation to correct itself. Therefore, while residual pointsNare important for ensuring the solution
-adheres to the PDE, they do not directly influence the accuracy as much as the analytical points
-M.
+- **Input Layer**: Two inputs, \( x \) (spatial coordinate) and \( t \) (time coordinate).
+- **Hidden Layer**: Contains 5 neurons per layer with Tanh activation functions.
+- **Output Layer**: Produces the final prediction of the velocity field \( u(x, t) \).
+
+### Activation Function: Tanh
+Tanh is used as the activation function. It handles non-linear relationships well and outputs values between -1 and 1, which is centered at 0. The Tanh relation has stronger gradients compared to the sigmoid activation function at points away from -1 and 1. Tanh is therefore chosen as the activation function of choice.
+
+### Optimizer: Adam
+The Adam optimizer is used to train the model. This optimizer adjusts the learning rate for each parameter, which helps the model converge faster. It combines the benefits of two other optimization techniques, AdaGrad and RMSProp, for more efficient learning. The Adam optimizer makes suitable updates to the model parameters, balancing between speed and accuracy.
+
+## Results and Discussion
+In this section, the results of the Physics-Informed Neural Network (PINN) approach to solve the 1-D Burgers' equation are presented. The model's predictions are compared with the analytical solutions provided by Harry Bateman. The discussion covers the performance of the model under various combinations of residual points (N) and analytical points (M), varying epochs, and different hidden layer configurations.
+
+### N and M points variance in Extended Supervised Learning Model
+Learning rate: 0.1
+Defined at a 1 hidden layer, 5 neurons
+nu at 0.1
+Epoch at 1000
+
+#### Baseline N=3, M=3
+In this setup, the number of sample or residual points \(N\) and analytical points \(M\) are both set to 3. The training time is approximately 2.82 seconds, which serves as the baseline for comparison with other configurations.
+
+#### Effect of variation of N and M
+From the baseline, different configurations are experimented with different \(N\) and \(M\) points, specifically \(N=3, M=5\), \(N=5, M=3\), and \(N=5, M=5\), to observe their impact on the model's performance. For \(N=3, M=5\), the training time is approximately 2.76 seconds. For both \(N=5, M=3\) and \(N=5, M=5\), the training time is approximately the same, around 2.85 seconds. The plots depict the model's predictions for each configuration compared to the analytical solution. The closer the model's prediction (blue line) is to the analytical solution (red dashed line), the better the model's performance. It is observed that increasing \(N\) from 3 to 5 while keeping \(M = 3\) does not significantly enhance the model's accuracy. However, increasing \(M\) from 3 to 5 notably improves the model's accuracy, with only a slight variation when \(N\) is changed from 3 to 5. The improvement in \(M\) from 3 to 5 results in the R-squared value increasing from 0.92 to 0.95. The R-squared value is calculated from the difference between the predicted and analytical solution.
+
+\[R^2 = 1 - \frac{\sum_{i=1}^{n} (y_{i, actual} - \hat{y}_{i, predicted})^2}{\sum_{i=1}^{n} (y_{i, actual} - \bar{y}_{i, actual})^2}\]
+
+Conversely, increasing the number of residual points \(N\) from 3 to 5 does not have as substantial an impact on accuracy.
+
+Therefore, it is found that the most influential parameter is the number of analytical points \(M\). This observation is logical because using more analytical points in the PDE loss term allows the model to learn more accurately and effectively bridge the gap between predicted and actual data. Residual points \(N\) play a critical role in enforcing PDE constraints across the domain, ensuring that the model's predictions adhere closely to the underlying physical laws. While these points maintain solution consistency, they do not directly assess the accuracy of the solution against known data points.
+
+On the other hand, analytical points \(M\) directly compare the model's predictions to known, accurate solutions at specific locations, providing strong feedback for adjusting the model. This direct comparison is crucial for improving accuracy, especially when the model can use this information to correct itself. Therefore, while residual points \(N\) are important for ensuring the solution adheres to the PDE, they do not directly influence the accuracy as much as the analytical points \(M\).
+
+![N=3, M=3](Figures/N=3M=3.png)
+![N=3, M=5](Figures/N=3M=5.png)
+![N=5, M=3](Figures/N=5M=3.png)
+![N=5, M=5](Figures/N=5M=5.png)
+
+**Figure**: Effect of Sample points N and Analytical point M variance on Accuracy of Extended Supervised PINN
+
+
+
 
 ### 3.2 Effect of Hidden Layers
 

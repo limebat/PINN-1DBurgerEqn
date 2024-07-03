@@ -86,24 +86,8 @@ The initial condition is set at \( t=0 \), where the boundary conditions of \( U
 
 The supervised extended PINN model uses a loss function that is a combination of the data loss (difference between predictions and labeled data) and the PDE residuals:
 
-It looks like there are some formatting issues with the equations you provided. Let me correct them for you:
+$$ \mathcal{L}_{\text{PDE}} = \frac{1}{M} \sum_{j=1}^{M} \left( u_t(x_j, t_j) + u(x_j, t_j) u_x(x_j, t_j) - \nu u_{xx}(x_j, t_j) \right)^2 $$
 
-1. PDE Loss:
-   $$
-   \mathcal{L}_{\text{PDE}} = \frac{1}{M} \sum_{j=1}^{M} \left( u_t(x_j, t_j) + u(x_j, t_j) u_x(x_j, t_j) - \nu u_{xx}(x_j, t_j) \right)^2
-   $$
-
-2. Data Loss:
-   $$
-   \mathcal{L}_{\text{data}} = \frac{1}{N} \sum_{i=1}^{N} \left( u_{\text{pred}}(x_i, t_i) - u_{\text{data}}(x_i, t_i) \right)^2
-   $$
-
-3. Boundary Condition Loss:
-   $$
-   \mathcal{L}_{\text{BC}} = \frac{1}{K} \sum_{k=1}^{K} \left( u_{\text{pred}}(x_{b_k}, t_{b_k}) - u_{b_k} \right)^2
-   $$
-
-These equations define the components of the loss function used in the PINN (Physics-Informed Neural Network) model for solving the 1D Burgers' equation.
 
 Where:
 - \( K \) is the number of boundary condition points,

@@ -237,9 +237,6 @@ On the other hand, analytical points \(M\) directly compare the model's predicti
 
 **Figure**: Effect of Sample points N and Analytical point M variance on Accuracy of Extended Supervised PINN
 
-
-Here is your content converted to GitHub Markdown:
-
 ### Effect of Hidden Layers
 
 The effect of the number of hidden layers on the model's performance is recorded. The results showed that for one hidden layer, the training time was approximately 2.82 seconds, whereas for two hidden layers, the training time was approximately 3.01 seconds. The performance plots revealed that increasing the number of hidden layers slightly increased the training time. This also led to a slight improvement in the model's accuracy as measured by the R-squared value. 
@@ -252,54 +249,33 @@ More hidden layers can help the model learn more complex relationships in the da
 **Figure**: Effect of Hidden Layers on Model Performance
 
 
+### Effect of Epochs
 
-### 3.3 Effect of Epochs
+The effect of the number of epochs (training iterations) on the model's performance is recorded. The results indicated that with 1000 epochs, the training time was approximately 2.82 seconds, and with 2000 epochs, the training time was approximately 4.62 seconds. The performance figures demonstrated that increasing the number of epochs improves the model's predictions, as the model has more opportunities to learn from the data. More epochs mean the model goes through the training data multiple times, allowing it to refine itself and reduce errors gradually. However, this also increases the training time. The improvement in accuracy with more epochs is due to the model having more time to adjust and converge towards a solution that better fits the data.
 
-The effect of the number of epochs (training iterations) on the model’s performance are recorded.
-The results indicated that with 1000 epochs, the training time was approximately 2.82 seconds,
-and with 2000 epochs, the training time was approximately 4.62 seconds. The performance figures
-demonstrated that increasing the number of epochs improves the model’s predictions, as the model
-has more opportunities to learn from the data. More epochs mean the model goes through the
-training data multiple times, allowing it to refine itself and reduce errors gradually. However, this
+![Epoch=1000](Figures/N=3M=3.png)
+![Epoch=2000](Figures/Epoch2000.png)
+
+**Figure**: Epoch 1000 vs 2000
 
 
-```
-N=3, M=3 N=3, M=
-```
-```
-N=5, M=3 N=5, M=
-```
-Figure 1: Effect of Sample points N and Analytical point M variance on Accuracy of Extended
-Supervised PINN
 
-```
-N=3, M=3, Hidden Layers=1 N=3, M=3, Hidden Layers=
-```
-```
-Figure 2: Effect of Hidden Layers on Model Performance
-```
+### Results of Different Configurations
 
-also increases the training time. The improvement in accuracy with more epochs is due to the
-model having more time to adjust and converge towards a solution that better fits the data.
+| N | M | Hidden Layers | Epochs | $R^2$ | Time (s) |
+|---|---|----------------|--------|-------|----------|
+| 3 | 3 | 1 | 1000 | 0.92 | 2.82 |
+| 3 | 5 | 1 | 1000 | 0.95 | 2.76 |
+| 5 | 3 | 1 | 1000 | 0.93 | 2.85 |
+| 5 | 5 | 1 | 1000 | 0.96 | 2.85 |
+| 3 | 3 | 2 | 1000 | 0.93 | 3.01 |
+| 3 | 3 | 1 | 2000 | 0.94 | 4.62 |
 
-```
-Epoch=1000 Epoch=
-```
-```
-Figure 3: Epoch 1000 vs 2000
-```
-```
-N M Hidden Layers Epochs R^2 Time (s)
-3 3 1 1000 0.92 2.
-3 5 1 1000 0.95 2.
-5 3 1 1000 0.93 2.
-5 5 1 1000 0.96 2.
-3 3 2 1000 0.93 3.
-3 3 1 2000 0.94 4.
-```
-```
-Table 1: Results of Different Configurations
-```
+**Table**: Results of Different Configurations
+
+
+
+
 ### 3.4 Next Steps
 
 There were mentioned three methods in our initial proposal report i.e. Supervised standard PINN,

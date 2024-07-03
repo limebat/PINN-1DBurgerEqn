@@ -65,7 +65,7 @@ $$
 u(x,t) = c - \frac{f^{+} - f^{-}}{2}\tanh\left[\frac{f^{+} - f^{-}}{4\nu}(x - ct)\right].
 $$
 
-For the analytical solution comparison with the extended supervised model, additional parameters of \( f^+ = 2 \), \( f^- = 0 \), and \( c = 1 \) are used to compare with the analytical solution below; the simplification with these given parameters is in accordance with Bateman's [harryBateman1915] solutions simplifications.
+For the analytical solution comparison with the extended supervised model, additional parameters of $$ \( f^+ = 2 \), \( f^- = 0 \), and \( c = 1 \) $$ are used to compare with the analytical solution below; the simplification with these given parameters is in accordance with Bateman's [harryBateman1915] solutions simplifications.
 
 $$
 u(x,t) = \frac{2}{1 + e^{\frac{x-t}{\nu}}}

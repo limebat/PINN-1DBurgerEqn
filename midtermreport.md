@@ -238,20 +238,20 @@ On the other hand, analytical points \(M\) directly compare the model's predicti
 **Figure**: Effect of Sample points N and Analytical point M variance on Accuracy of Extended Supervised PINN
 
 
+Here is your content converted to GitHub Markdown:
+
+### Effect of Hidden Layers
+
+The effect of the number of hidden layers on the model's performance is recorded. The results showed that for one hidden layer, the training time was approximately 2.82 seconds, whereas for two hidden layers, the training time was approximately 3.01 seconds. The performance plots revealed that increasing the number of hidden layers slightly increased the training time. This also led to a slight improvement in the model's accuracy as measured by the R-squared value. 
+
+More hidden layers can help the model learn more complex relationships in the data, but they also increase computational complexity and training time. More hidden layers allow the model to capture more complex patterns in the data, potentially leading to better accuracy. This happens because additional layers enable the model to learn more detailed representations of the input data, which can improve its ability to generalize and predict the velocity field accurately.
+
+![N=3, M=3, Hidden Layers=1](Figures/N=3M=3.png)
+![N=3, M=3, Hidden Layers=2](Figures/2HiddenLayers.png)
+
+**Figure**: Effect of Hidden Layers on Model Performance
 
 
-### 3.2 Effect of Hidden Layers
-
-The effect of the number of hidden layers on the model’s performance are recorded. The results
-showed that for one hidden layer, the training time was approximately 2.82 seconds, whereas
-for two hidden layers, the training time was approximately 3.01 seconds. The performance plots
-revealed that increasing the number of hidden layers slightly increased the training time. This
-also led to a slight improvement in the model’s accuracy as measured by the R-squared value.
-More hidden layers can help the model learn more complex relationships in the data, but they
-also increase computational complexity and training time. More hidden layers allow the model to
-capture more complex patterns in the data, potentially leading to better accuracy. This happens
-because additional layers enable the model to learn more detailed representations of the input
-data, which can improve its ability to generalize and predict the velocity field accurately.
 
 ### 3.3 Effect of Epochs
 

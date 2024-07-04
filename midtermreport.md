@@ -215,7 +215,7 @@ From the baseline, different configurations are experimented with different N an
 
 
 $`$
-R^2 = 1 - \frac{\sum_{i=1} (y_{i, actual} - \hat{y}_{i, predicted})^2}{\sum_{i=1}^{n} (y_{i, actual} - \bar{y}_{i, actual})^2}
+R^2 = 1 - \frac{\sum_{i=1} ^{n} (y_{i, actual} - \hat{y}_{i, predicted})^2}{\sum_{i=1}^{n} (y_{i, actual} - \bar{y}_{i, actual})^2}
 $`$
 
 Conversely, increasing the number of residual points N from 3 to 5 does not have as substantial an impact on accuracy.

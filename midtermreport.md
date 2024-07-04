@@ -287,15 +287,10 @@ and accuracy gained from the removal of these losses. Regardless, the combinatio
 losses have been demonstrated and recorded for the variation of parameters investigated.
 
 
-## 4 Conclusion
+# 4 Conclusion
 
-In conclusion, the current implementation employs a Supervised Extended Physics-Informed Neu-
-ral Network to solve the 1-D Burgers’ equation. The input layer incorporates spatial and temporal
-coordinates into the neural network, which utilizes a Tanh activation function in a single hidden
-layer before making predictions in the output layer,U(x,t). The predictions are trained and
-tested by combining initial condition loss, residual loss, and PDE loss. Through this approach,
-the model accurately predicts how the velocity fieldU changes over time and space, leveraging
-known solutions and appropriate adjustments guided by fundamental principles of physics.
+In conclusion, the current implementation employs a Supervised Extended Physics-Informed Neural Network to solve the 1-D Burgers' equation. The input layer incorporates spatial and temporal coordinates into the neural network, which utilizes a Tanh activation function in a single hidden layer before making predictions in the output layer, \( U(x, t) \). The predictions are trained and tested by combining initial condition loss, residual loss, and PDE loss. Through this approach, the model accurately predicts how the velocity field \( U \) changes over time and space, leveraging known solutions and appropriate adjustments guided by fundamental principles of physics.
+
 
 ## 5 Goals
 

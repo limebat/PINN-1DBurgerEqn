@@ -301,17 +301,23 @@ known solutions and appropriate adjustments guided by fundamental principles of 
 
 1. Analysis of Burgers’ Equation Using PINN:Analyze and reconstruct the flow field of
 the Burgers’ equation using both supervised and unsupervised PINNs.
-    2. Accurate Solution Capture:Ensure the PINN model accurately replicates the analytical
+    
+2. Accurate Solution Capture:Ensure the PINN model accurately replicates the analytical
 solutions of the Burgers’ equation
-    3. Effective Sampling: Use smart sampling techniques, such as adaptive and weighted
+
+3. Effective Sampling: Use smart sampling techniques, such as adaptive and weighted
 sampling, to focus on complex regions with significant changes
-    4. Smooth Convergence: Achieve smooth and efficient training of the model, indicating
+
+4. Smooth Convergence: Achieve smooth and efficient training of the model, indicating
 effective learning and proper convergence to the solution.
-    5. Robustness to Variations:Ensure the model remains accurate even with uncertainties
+
+5. Robustness to Variations:Ensure the model remains accurate even with uncertainties
 in initial and boundary conditions
-    6. Optimized Training: Balance accuracy and computational efficiency by optimizing the
+
+6. Optimized Training: Balance accuracy and computational efficiency by optimizing the
 network architecture and training parameters.
-    7. Visualization and Comparison:Visualize the flowfield solution, comparing it with ana-
+
+7. Visualization and Comparison:Visualize the flowfield solution, comparing it with ana-
 lytical solutions to differences within numerical simulation.
 
 ## References

@@ -39,10 +39,7 @@ physical laws, especially when there is a lack of available data. To make predic
 prior knowledge of physical laws in the learning process. Traditional high fidelity methods like
 computational fluid dynamics (CFD) or FEM are computationally expensive, but PINNs offer
 an alternative method that is much faster and requires less data. These methods can be applied
-in many real world scenarios to make predictions and facilitate in design and decision making
-
-
-processes, including problems in thermodynamics, climate sciences, and CFD. In our project, we
+in many real world scenarios to make predictions and facilitate in design and decision making processes, including problems in thermodynamics, climate sciences, and CFD. In our project, we
 apply PINN models to solve the 1D Burger’s equation. The 1D Burger’s equation is a simplification
 of the Naiver-Stokes equation and solving this simplified system using a neural network is a
 preliminary step in applying machine learning methods to more complex representations of fluid
@@ -140,9 +137,9 @@ $$
 
 The architecture consists of three layers:
 
-- Input Layer: Two inputs,x(spatial coordinate) andt(time coordinate).
+- Input Layer: Two inputs, x (spatial coordinate) and t (time coordinate).
 - Hidden Layer: Contains 5 neurons per layer with Tanh activation functions.
-- Output Layer: Produces the final prediction of the velocity fieldu(x,t).
+- Output Layer: Produces the final prediction of the velocity field u(x,t).
 
 2.3.2 Activation Function: Tanh
 

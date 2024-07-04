@@ -328,3 +328,10 @@ In:Computer Methods in Applied Mechanics and Engineering 414 (2023), p. 116172.i
 0045-7825.
 
 
+
+![Contributions Table](Figures/ContributionsTable.PNG)
+![](Figures/Gantt1.PNG)
+![Gantt Chart](Figures/Gantt2.PNG)
+
+
+

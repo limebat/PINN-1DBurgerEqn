@@ -103,12 +103,12 @@ The grid is uniformly sampled for MSE PDE analytical solution comparisons (N poi
 
 2.2.2 Initial and Boundary Conditions
 
-The initial condition is set at t = 0, where the boundary conditions of U(x=0,t=0)=1 and
-U(x=1,t=0)=0 are given by the Bateman solutions for the supervised extended learning.
+The initial condition is set at $t=0$, where the boundary conditions of $`U(x=0,t=0) = 1`$ and
+$`U(x=1,t=0)=0`$ are given by the Bateman solutions for the supervised extended learning.
 
-- Initial Condition: Att= 0,u(x= 0,t= 0) = 1 andu(x= 1,t= 0) = 0. This is included in
+- Initial Condition: At $`t=0`$, $`u(x=0,t=0) = 1`$ and $`u(x=1,t=0) = 0`$. This is included in
     the loss function as the initial condition loss.
-- Boundary Condition: Boundaries are set atx= 0 andx= 1. The actual values ofuat
+- Boundary Condition: Boundaries are set at $`x=0`$ and $`x= 1`$. The actual values of $u$ at
     these boundaries are implicitly handled by the model through the learning process.
 
 ### 2.3 Model - Supervised Extended PINN

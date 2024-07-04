@@ -172,28 +172,24 @@ Learnign rate = 0.1 Defined at a 1 hidden layer , 5 neurons nu at 0.1 Epcoh at 1
 
 3.1.1 Baseline N=3, M=3
 
-In this setup, the number of sample or residual points N and analytical pointsMare both set to
-
+In this setup, the number of sample or residual points N and analytical points M are both set to
 3. The training time is approximately 2.82 seconds, which serves as the baseline for comparison
 with other configurations.
 
 3.1.2 Effect of variation of N and M
 
-From the baseline, different configurations are experimented with different N andM points,
-specifically N = 3,M = 5, N = 5,M= 3, and  N = 5,M = 5, to observe their impact on the
-model’s performance. For N = 3,M = 5, the training time is approximately 2.76 seconds. For
-both N = 5,M= 3 and N = 5,M = 5, the training time is approximately the same, around
+From the baseline, different configurations are experimented with different N and M points,
+specifically N = 3, M = 5, N = 5, M= 3, and N = 5, M = 5, to observe their impact on the
+model’s performance. For N = 3, M = 5, the training time is approximately 2.76 seconds. For
+both N = 5, M= 3 and N = 5, M = 5, the training time is approximately the same, around
 2.85 seconds. The plots depict the model’s predictions for each configuration compared to the
-
-
 analytical solution. The closer the model’s prediction (blue line) is to the analytical solution (red
 dashed line), the better the model’s performance. It is observed that increasing N from 3 to 5
-while keepingM= 3 does not significantly enhance the model’s accuracy. However, increasingM
+while keeping M=3 does not significantly enhance the model’s accuracy. However, increasing M
 from 3 to 5 notably improves the model’s accuracy, with only a slight variation when N is changed
-from 3 to 5. The improvement inM from 3 to 5 results in the R-squared value increasing from
+from 3 to 5. The improvement in M from 3 to 5 results in the R-squared value increasing from
 0.92 to 0.95. The R-squared value is calculated from the difference between the predicted and
 analytical solution.
-Here's your content converted to GitHub Markdown:
 
 ### Neural Network Architecture
 The architecture consists of three layers:

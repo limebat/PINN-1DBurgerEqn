@@ -94,9 +94,9 @@ The grid is uniformly sampled for MSE PDE analytical solution comparisons (N poi
 - Training Data:
     - Initial Condition Points (K): Specific points at the boundaries of the domain (x=
        and x=1 at t=0).
-    - Residual Points (M): Randomly selected points within the domain to sample resid-
+    - Residual Points M: Randomly selected points within the domain to sample resid-
        uals throughout the domain.
-    - Analytical Data Points (N): Uniformly selected points within the domain to sample
+    - Analytical Data Points N: Uniformly selected points within the domain to sample
        analytical velocity to compare against predicted velocity.
 - Validation Data: Analytical solutions within the domain are used to validate the model’s
     accuracy in the visualization of data as a baseline.
@@ -163,33 +163,33 @@ makes suitable updates to the model parameters, balancing between speed and accu
 In this section, the results of the Physics-Informed Neural Network (PINN) approach to solve the
 1-D Burgers’ equation are presented. The model’s predictions are compared with the analytical
 solutions provided by Harry Bateman [1]. The discussion covers the performance of the model
-under various combinations of residual points (N) and analytical points (M), varying epochs, and
+under various combinations of residual points N and analytical points M, varying epochs, and
 different hidden layer configurations.
 
 ### 3.1 N and M points variance in Extended Supervised Learning Model
 
 Learnign rate = 0.1 Defined at a 1 hidden layer , 5 neurons nu at 0.1 Epcoh at 1000
 
-3.1.1 Baseline N=3, M=
+3.1.1 Baseline N=3, M=3
 
-In this setup, the number of sample or residual pointsNand analytical pointsMare both set to
+In this setup, the number of sample or residual points N and analytical pointsMare both set to
 
 3. The training time is approximately 2.82 seconds, which serves as the baseline for comparison
 with other configurations.
 
 3.1.2 Effect of variation of N and M
 
-From the baseline, different configurations are experimented with differentN andM points,
-specificallyN = 3,M = 5,N = 5,M= 3, and N = 5,M = 5, to observe their impact on the
-model’s performance. ForN = 3,M = 5, the training time is approximately 2.76 seconds. For
-bothN = 5,M= 3 andN = 5,M = 5, the training time is approximately the same, around
+From the baseline, different configurations are experimented with different N andM points,
+specifically N = 3,M = 5, N = 5,M= 3, and  N = 5,M = 5, to observe their impact on the
+model’s performance. For N = 3,M = 5, the training time is approximately 2.76 seconds. For
+both N = 5,M= 3 and N = 5,M = 5, the training time is approximately the same, around
 2.85 seconds. The plots depict the model’s predictions for each configuration compared to the
 
 
 analytical solution. The closer the model’s prediction (blue line) is to the analytical solution (red
-dashed line), the better the model’s performance. It is observed that increasingN from 3 to 5
+dashed line), the better the model’s performance. It is observed that increasing N from 3 to 5
 while keepingM= 3 does not significantly enhance the model’s accuracy. However, increasingM
-from 3 to 5 notably improves the model’s accuracy, with only a slight variation whenNis changed
+from 3 to 5 notably improves the model’s accuracy, with only a slight variation when N is changed
 from 3 to 5. The improvement inM from 3 to 5 results in the R-squared value increasing from
 0.92 to 0.95. The R-squared value is calculated from the difference between the predicted and
 analytical solution.
@@ -209,7 +209,7 @@ Tanh is used as the activation function. It handles non-linear relationships wel
 The Adam optimizer is used to train the model. This optimizer adjusts the learning rate for each parameter, which helps the model converge faster. It combines the benefits of two other optimization techniques, AdaGrad and RMSProp, for more efficient learning. The Adam optimizer makes suitable updates to the model parameters, balancing between speed and accuracy.
 
 ## Results and Discussion
-In this section, the results of the Physics-Informed Neural Network (PINN) approach to solve the 1-D Burgers' equation are presented. The model's predictions are compared with the analytical solutions provided by Harry Bateman. The discussion covers the performance of the model under various combinations of residual points (N) and analytical points (M), varying epochs, and different hidden layer configurations.
+In this section, the results of the Physics-Informed Neural Network (PINN) approach to solve the 1-D Burgers' equation are presented. The model's predictions are compared with the analytical solutions provided by Harry Bateman. The discussion covers the performance of the model under various combinations of residual points N and analytical points M, varying epochs, and different hidden layer configurations.
 
 ### N and M points variance in Extended Supervised Learning Model
 All cases are run at the following parameters, unless otherwise specified in the changes per subsection. A learning rate = 0.1, 1 hidden layer, and 5 neurons are set. The points of M = 3, N = 3, K = 2 are defined. A viscosity of $`\nu = 0.1`$ is set. An epoch count of 1000 is used.

@@ -312,8 +312,7 @@ in initial and boundary conditions
 6. Optimized Training: Balance accuracy and computational efficiency by optimizing the
 network architecture and training parameters.
 
-7. Visualization and Comparison:Visualize the flowfield solution, comparing it with ana-
-lytical solutions to differences within numerical simulation.
+7. Visualization and Comparison:Visualize the flowfield solution, comparing it with analytical solutions to differences within numerical simulation.
 
 ## References
 

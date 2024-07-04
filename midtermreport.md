@@ -214,7 +214,7 @@ In this section, the results of the Physics-Informed Neural Network (PINN) appro
 ### N and M points variance in Extended Supervised Learning Model
 All cases are run at the following parameters, unless otherwise specified in the changes per subsection. A learning rate = 0.1, 1 hidden layer, and 5 neurons are set. The points of M = 3, N = 3, K = 2 are defined. A viscosity of $`\nu = 0.1`$ is set. An epoch count of 1000 is used.
 
-#### Baseline N=3, M=3
+#### Baseline $`N=3, M=3`$
 In this setup, the number of sample or residual points N and analytical points M are both set to 3. The training time is approximately 2.82 seconds, which serves as the baseline for comparison with other configurations.
 
 #### Effect of variation of N and M

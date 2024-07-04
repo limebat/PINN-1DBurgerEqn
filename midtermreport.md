@@ -214,10 +214,9 @@ In this setup, the number of sample or residual points N and analytical points M
 From the baseline, different configurations are experimented with different N and M points, specifically N=3, M=5, N=5, M=3, and N=5, M=5, to observe their impact on the model's performance. For N=3, M=5, the training time is approximately 2.76 seconds. For both N=5, M=3 and N=5, M=5, the training time is approximately the same, around 2.85 seconds. The plots depict the model's predictions for each configuration compared to the analytical solution. The closer the model's prediction (blue line) is to the analytical solution (red dashed line), the better the model's performance. It is observed that increasing N from 3 to 5 while keeping M = 3 does not significantly enhance the model's accuracy. However, increasing M from 3 to 5 notably improves the model's accuracy, with only a slight variation when N is changed from 3 to 5. The improvement in M from 3 to 5 results in the R-squared value increasing from 0.92 to 0.95. The R-squared value is calculated from the difference between the predicted and analytical solution.
 
 
-$'
-\[R^2 = 1 - \frac{\sum_{i=1}^{n} (y_{i, actual} - \hat{y}_{i, predicted})^2}{\sum_{i=1}^{n} (y_{i, actual} - \bar{y}_{i, actual})^2}
-\]
-'$
+$'$
+R^2 = 1 - \frac{\sum_{i=1}^{n} (y_{i, actual} - \hat{y}_{i, predicted})^2}{\sum_{i=1}^{n} (y_{i, actual} - \bar{y}_{i, actual})^2}
+$'$
 
 Conversely, increasing the number of residual points N from 3 to 5 does not have as substantial an impact on accuracy.
 

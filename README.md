@@ -1,1 +1,11 @@
+![Image 1](/MidtermProposalImages/PINN_Midterm_Report (3)_00001.png)
+![Image 2](/MidtermProposalImages/PINN_Midterm_Report (3)_00002.png)
+![Image 3](/MidtermProposalImages/PINN_Midterm_Report (3)_00003.png)
+![Image 4](/MidtermProposalImages/PINN_Midterm_Report (3)_00004.png)
+![Image 5](/MidtermProposalImages/PINN_Midterm_Report (3)_00005.png)
+![Image 6](/MidtermProposalImages/PINN_Midterm_Report (3)_00006.png)
+![Image 7](/MidtermProposalImages/PINN_Midterm_Report (3)_00007.png)
+![Image 8](/MidtermProposalImages/PINN_Midterm_Report (3)_00008.png)
+![Image 9](/MidtermProposalImages/PINN_Midterm_Report (3)_00009.png)
+![Image 10](/MidtermProposalImages/PINN_Midterm_Report (3)_00010.png)
 

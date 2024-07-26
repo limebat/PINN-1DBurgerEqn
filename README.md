@@ -1,6 +1,6 @@
 ![Image 1](/FinalReportImages/FinalReport_page-0001.jpg)
 ![Image 2](/FinalReportImages/FinalReport_page-0002.jpg)
-![Image 3](/FinalReportImages/FinalReport_page-0003.jpg
+![Image 3](/FinalReportImages/FinalReport_page-0003.jpg)
 ![Image 4](/FinalReportImages/FinalReport_page-0004.jpg)
 ![Image 5](/FinalReportImages/FinalReport_page-0005.jpg)
 ![Image 6](/FinalReportImages/FinalReport_page-0006.jpg)
